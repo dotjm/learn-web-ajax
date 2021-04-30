@@ -23,6 +23,13 @@
       fetch('css').then(callbackme);//then -> 응답요청 후 대기하지 않고 나머지 함수 실행, 요청 완료되면 그때 함수 콜백
       console.log(1);
       console.log(2);
+
+      fetch('csss').then(function(response){ //없는 파일 요청
+        console.log(response.status);       //응답 코드 확인
+        if(response.status == '404'){       //404 not found라면 
+          alert('not found')
+        }
+      });
     ">
   </body>
 </html>
