@@ -34,7 +34,7 @@
         response.text().then(function(text){
           //<li><a href="#!html" onclick="fetchPage('html')">html</a></li>
           // console.log(text);
-          // document.querySelector('#nav').innerHTML = text; //article 내용 변경
+          // document.querySelector('#nav').innerHTML = text; //글목록(#nav) 내용 변경
           var items = text.split(',');
           var tags = '';
           console.log(items);
@@ -49,7 +49,7 @@
             tags = tags + tag;
             i = i + 1;
           }
-          document.querySelector('#nav').innerHTML = tags;
+          document.querySelector('#nav').innerHTML = tags; //글목록(#nav) 내용 변경
         });
       });
     </script>
