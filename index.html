@@ -11,10 +11,8 @@
     <input id="night_day" type="button" value="night" onclick="
       nightDayHandler(this);
     ">
-    <ol>
-      <li><a href="#!html" onclick="fetchPage('html')">HTML</a></li> <!-- #! = 해쉬 뱅이라고도 함, 해쉬의 북마크 기능과 구분하기 위한 관습적 역활 -->
-      <li><a href="#!css" onclick="fetchPage('css')">CSS</a></li>
-      <li><a href="#!javascript" onclick="fetchPage('javascript')">JavaScript</a></li>
+    <ol id="nav">
+
     </ol>
     <article>
 
@@ -32,6 +30,11 @@
       } else {
         fetchPage('welcome');
       }
+      fetch('list').then(function(response){
+        response.text().then(function(text){
+          document.querySelector('#nav').innerHTML = text; //article 내용 변경
+        });
+      });
     </script>
   </body>
 </html>
