@@ -32,7 +32,24 @@
       }
       fetch('list').then(function(response){
         response.text().then(function(text){
-          document.querySelector('#nav').innerHTML = text; //article 내용 변경
+          //<li><a href="#!html" onclick="fetchPage('html')">html</a></li>
+          // console.log(text);
+          // document.querySelector('#nav').innerHTML = text; //article 내용 변경
+          var items = text.split(',');
+          var tags = '';
+          console.log(items);
+          var i = 0;
+          while (i < items.length) {
+            var item = items[i]
+            item = item.trim();
+            //<li><a href="#!html" onclick="fetchPage('html')">html</a></li>
+            // console.log(item);
+            var tag = "<li><a href=\"#!"+item+"\" onclick=\"fetchPage('"+item+"')\">"+item+"</a></li>"
+            // console.log(tag);
+            tags = tags + tag;
+            i = i + 1;
+          }
+          document.querySelector('#nav').innerHTML = tags;
         });
       });
     </script>
